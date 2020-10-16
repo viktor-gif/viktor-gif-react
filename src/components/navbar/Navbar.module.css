@@ -1,0 +1,21 @@
+.navbar {
+  grid-area: n;
+  background-image: url("https://www.theuniversetimes.ru/wp-content/uploads/2019/09/M31_Abolfath_3000.jpg");
+  background-size: contain;
+}
+.item {
+  display: block;
+  padding: 10px;
+}
+
+.item a {
+  text-decoration: none;
+  /* color: #000; */
+}
+.item:hover {
+  background-color: #f0f0f0;
+}
+
+.item a.active {
+  color: gold;
+}

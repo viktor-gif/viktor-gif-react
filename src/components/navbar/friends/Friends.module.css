@@ -1,0 +1,47 @@
+/* friends container */
+.friendsContainer {
+  background-color: rgb(255, 252, 91, 0.3);
+  padding: 10px;
+  margin-top: 20px;
+}
+.friendsContainer h3 {
+  text-align: center;
+  font-size: 30px;
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.myFriends {
+  display: flex;
+  justify-content: space-between;
+}
+.myFriends a {
+  text-decoration: none;
+  color: rgb(27, 27, 139);
+  width: 60px;
+}
+.myFriends a:hover {
+  color: rgb(218, 165, 32);
+  text-decoration: solid;
+}
+
+/* friends */
+.friendsItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  justify-content: space-between;
+  margin-top: 10px;
+  /* padding: 15px; */
+}
+
+/* friend (item) */
+.name {
+  color: rgb(61, 55, 21);
+}
+.friendImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}

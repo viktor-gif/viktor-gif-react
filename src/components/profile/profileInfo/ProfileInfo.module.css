@@ -1,0 +1,8 @@
+.mainPhoto {
+  width: 100%;
+  height: 200px;
+  background-image: url("https://www.meme-arsenal.com/memes/1a0d126c09ef9859f5946bde0c3a79ef.jpg");
+}
+.info {
+  padding: 10px;
+}
