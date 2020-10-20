@@ -1,5 +1,8 @@
 import photo from "../images/wedding.jpg";
-import renderEntireTree from "../render";
+
+let renderEntireTree = () => {
+  console.log("this is a callback-function");
+};
 
 let state = {
   profilePage: {
@@ -89,13 +92,13 @@ export const addPost = (newText) => {
     post: newText,
     likesCount: Math.floor(Math.random() * 1000),
   };
-  state.profilePage.posts.push(newPost);
-  renderEntireTree(state);
+  state.profilePage.posts.unshift(newPost);
+  renderEntireTree();
   state.profilePage.newPostText = "";
 };
 export const updatePostText = (newText) => {
   state.profilePage.newPostText = newText;
-  renderEntireTree(state);
+  renderEntireTree();
 };
 
 //for messages
@@ -108,12 +111,16 @@ export const addMessage = (newText) => {
     message: newText,
   };
   state.dialogsPage.messages.push(newMessage);
-  renderEntireTree(state);
+  renderEntireTree();
   state.dialogsPage.newMessageText = "";
 };
 export const updateMessageText = (newText) => {
   state.dialogsPage.newMessageText = newText;
-  renderEntireTree(state);
+  renderEntireTree();
+};
+
+export const subscribe = (observer) => {
+  renderEntireTree = observer;
 };
 
 export default state;
