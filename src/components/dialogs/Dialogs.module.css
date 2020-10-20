@@ -32,3 +32,12 @@ a.active {
   background-color: rgb(255, 252, 91, 0.5);
   border-radius: 0 10px 10px;
 }
+
+/* form */
+.formMessage {
+  margin-top: 20px;
+}
+.formMessage button {
+  display: block;
+  margin-top: 10px;
+}

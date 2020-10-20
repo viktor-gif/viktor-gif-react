@@ -6,3 +6,6 @@
 .info {
   padding: 10px;
 }
+.info textarea {
+  margin-bottom: 10px;
+}

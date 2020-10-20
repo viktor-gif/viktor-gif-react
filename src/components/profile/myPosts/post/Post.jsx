@@ -7,7 +7,7 @@ const Post = (props) => {
       <img src="https://www.denofgeek.com/wp-content/uploads/2017/03/darth-vader-1_0.jpg?fit=1947%2C1274" />
       <span>{props.message}</span>
       <span className={s.like}>
-        like<span>{props.likesKount}</span>
+        like<span>{props.likesCount}</span>
       </span>
     </div>
   );
