@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
-import Dialogs from "./components/dialogs/Dialogs";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 import Header from "./components/header/Header";
 import Music from "./components/music/Music";
 import Navbar from "./components/navbar/Navbar";
@@ -15,28 +15,10 @@ const App = (props) => {
     <BrowserRouter>
       <div className="App-wrapper">
         <Header />
-        <Navbar friends={props.state.sidebar.friends} />
+        <Navbar />
         <div className="content">
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                profilePage={props.state.profilePage}
-                addPost={props.addPost}
-                updatePostText={props.updatePostText}
-              />
-            )}
-          />
-          <Route
-            path="/dialogs"
-            render={() => (
-              <Dialogs
-                dialogsPage={props.state.dialogsPage}
-                addMessage={props.addMessage}
-                updateMessageText={props.updateMessageText}
-              />
-            )}
-          />
+          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/users" component={Users} />
           <Route path="/music" component={Music} />
           <Route path="/news" component={News} />

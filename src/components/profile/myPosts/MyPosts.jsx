@@ -1,6 +1,5 @@
 import React from "react";
-import { updateNewPostText } from "../../../redux/state";
-import ProfileInfo from "../profileInfo/ProfileInfo";
+import ProfileInfoContainer from "../profileInfo/ProfileInfoContainer";
 import s from "./MyPosts.module.css";
 import Post from "./post/Post";
 
@@ -11,10 +10,9 @@ const MyPosts = (props) => {
 
   return (
     <div className={s.content}>
-      <ProfileInfo
-        addPost={props.addPost}
+      <ProfileInfoContainer
+        dispatch={props.dispatch}
         newPostText={props.newPostText}
-        updatePostText={props.updatePostText}
       />
       <div className={s.myPosts}>
         My posts

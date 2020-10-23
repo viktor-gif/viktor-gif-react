@@ -11,15 +11,12 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
-  let messageValue = React.createRef();
-
   let addMessage = () => {
-    let text = props.dialogsPage.newMessageText;
-    props.addMessage(text);
+    props.addMessage();
   };
-  let onMessageChange = () => {
-    let text = messageValue.current.value;
-    props.updateMessageText(text);
+  let onMessageChange = (e) => {
+    let body = e.target.value;
+    props.onMessageChange(body);
   };
 
   let dialogsItems = props.dialogsPage.dialogs.map((d) => (
@@ -37,10 +34,9 @@ const Dialogs = (props) => {
         {messagesItems}
         <div className={s.formMessage}>
           <textarea
-            placeholder="Type your message..."
-            ref={messageValue}
-            onChange={onMessageChange}
+            placeholder="Enter your message..."
             value={props.dialogsPage.newMessageText}
+            onChange={onMessageChange}
           ></textarea>
           <button onClick={addMessage}>send message</button>
         </div>

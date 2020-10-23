@@ -1,17 +1,17 @@
 import React from "react";
+import { addPostAC, updatePostTextAC } from "../../../redux/profile-reducer";
 import s from "./ProfileInfo.module.css";
 
 const ProfileInfo = (props) => {
   let textValue = React.createRef();
 
   let addPost = () => {
-    let text = props.newPostText;
-    props.addPost(text);
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = textValue.current.value;
-    props.updatePostText(text);
+    props.onPostChange(text);
   };
 
   return (
