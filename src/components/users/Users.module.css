@@ -39,3 +39,7 @@
   font-size: 16px;
   margin-top: 30px;
 }
+
+.currentPage {
+  font-weight: bold;
+}

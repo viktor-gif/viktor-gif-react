@@ -1,51 +1,38 @@
 import React from "react";
-import yoda from "../../images/yoda.jpeg";
+import { NavLink } from "react-router-dom";
+import userPhoto from "../../images/dart.png";
 import s from "./Users.module.css";
 
 const Users = (props) => {
-  if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        followed: false,
-        name: "Dmitry K.",
-        photo: yoda,
-        location: { country: "Belarus,", city: "Minsk" },
-        status: "I am looking for a Job right now...",
-      },
-      {
-        id: 2,
-        followed: true,
-        name: "Svetlana D.",
-        photo: yoda,
-        location: { country: "Belarus,", city: "Minsk" },
-        status: "I am so pretty",
-      },
-      {
-        id: 3,
-        followed: true,
-        name: "Sergey S.",
-        photo: yoda,
-        location: { country: "Ukraine,", city: "Kiev" },
-        status: "I like football!!!",
-      },
-      {
-        id: 4,
-        followed: true,
-        name: "Andrew T.",
-        photo: yoda,
-        location: { country: "United States,", city: " Philadelphia" },
-        status: "I am free to help you to create good Video Production",
-      },
-    ]);
-  }
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+  console.log(pagesCount);
   return (
     <div>
+      <div>
+        {pages.map((p) => {
+          return (
+            <span
+              className={props.currentPage === p && s.currentPage}
+              onClick={(e) => {
+                props.onPageChanged(p);
+              }}
+            >
+              {p}
+            </span>
+          );
+        })}
+      </div>
       {props.users.map((u) => (
         <div className={s.users} key={u.id}>
           <div className={s.userPage}>
-            <img src={u.photo} />
+            <NavLink to={"/profile/" + u.id}>
+              <img src={u.photos.small != null ? u.photos.small : userPhoto} />
+            </NavLink>
             {u.followed ? (
               <button
                 onClick={() => {
@@ -70,8 +57,8 @@ const Users = (props) => {
               <div className={s.status}>{u.status}</div>
             </div>
             <div className={s.location}>
-              <div className={s.country}>{u.location.country}</div>
-              <div className={s.city}>{u.location.city}</div>
+              <div className={s.country}>{"u.location.country"}</div>
+              <div className={s.city}>{"u.location.city"}</div>
             </div>
           </div>
         </div>

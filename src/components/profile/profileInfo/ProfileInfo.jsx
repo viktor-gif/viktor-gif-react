@@ -1,32 +1,31 @@
 import React from "react";
-import { addPostAC, updatePostTextAC } from "../../../redux/profile-reducer";
 import s from "./ProfileInfo.module.css";
+import Preloader from "../../common/preloader/Preloader";
 
 const ProfileInfo = (props) => {
-  let textValue = React.createRef();
-
-  let addPost = () => {
-    props.addPost();
-  };
-
-  let onPostChange = () => {
-    let text = textValue.current.value;
-    props.onPostChange(text);
-  };
-
+  if (!props.profileInfo) {
+    return <Preloader />;
+  }
+  let info = props.profileInfo;
   return (
     <div>
       <div className={s.mainPhoto}></div>
       <div className={s.info}>
-        <div>ava + description</div>
-        <textarea
-          onChange={onPostChange}
-          value={props.newPostText}
-          ref={textValue}
-          placeholder="Add your text..."
-        ></textarea>
+        <img src={info.photos.large} />
+        <div>{info.aboutMe}</div>
+        <div>{info.fullName}</div>
+        <div>{info.lookingForAJob}</div>
+        <div>{info.lookingForAJobDescription}</div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          contacts:
+          <div>{info.contacts.facebook}</div>
+          <div>{info.contacts.website}</div>
+          <div>{info.contacts.vk}</div>
+          <div>{info.contacts.twitter}</div>
+          <div>{info.contacts.instagram}</div>
+          <div>{info.contacts.youtube}</div>
+          <div>{info.contacts.github}</div>
+          <div>{info.contacts.mainLink}</div>
         </div>
       </div>
     </div>
