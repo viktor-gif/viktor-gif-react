@@ -16,7 +16,7 @@ const Dialogs = (props) => {
   };
   let onMessageChange = (e) => {
     let body = e.target.value;
-    props.onMessageChange(body);
+    props.updateMessageText(body);
   };
 
   let dialogsItems = props.dialogsPage.dialogs.map((d) => (

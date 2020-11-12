@@ -6,10 +6,13 @@ import s from "./Profile.module.css";
 const Profile = (props) => {
   return (
     <div className={s.content}>
-      <ProfileInfo profileInfo={props.profileInfo} />
+      <ProfileInfo {...props} />
       <MyPostsContainer />
     </div>
   );
 };
 
 export default Profile;
+
+// profileInfo={props.profileInfo}
+//         isFetching={props.isFetching}

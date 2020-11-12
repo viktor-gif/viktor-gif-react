@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import userPhoto from "../../images/dart.png";
 import s from "./Users.module.css";
+import { usersAPI } from "../../api/api";
+import { unfollowSuccess } from "../../redux/users-reducer";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -10,14 +12,17 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  console.log(pagesCount);
+
   return (
     <div>
       <div>
         {pages.map((p) => {
           return (
             <span
-              className={props.currentPage === p && s.currentPage}
+              key={p}
+              className={
+                props.currentPage === p ? s.currentPage : s.notCurrentPage
+              }
               onClick={(e) => {
                 props.onPageChanged(p);
               }}
@@ -35,16 +40,18 @@ const Users = (props) => {
             </NavLink>
             {u.followed ? (
               <button
+                disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.unfollow(u.id);
+                  props.unfollow(u.id); //thunk
                 }}
               >
                 Unfollow
               </button>
             ) : (
               <button
+                disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.follow(u.id);
+                  props.follow(u.id); //thunk
                 }}
               >
                 Follow

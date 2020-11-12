@@ -2,7 +2,20 @@
   grid-area: h;
   background-color: rgba(153, 153, 153, 0.5);
 }
-.header img {
+.image {
+  display: inline-block;
+}
+.image img {
   width: 60px;
   margin-top: 8px;
+  display: inline-block;
+}
+.loginBlock {
+  margin-right: 20px;
+  margin-top: 15px;
+  display: inline-block;
+  float: right;
+}
+.loginBlock a {
+  color: white;
 }

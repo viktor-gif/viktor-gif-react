@@ -1,6 +1,9 @@
+import { profileAPI } from "../api/api";
+
 const ADD_POST = "ADD_POST";
 const UPDATE_POST_TEXT = "PDATE_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 const initialState = {
   posts: [
@@ -11,6 +14,7 @@ const initialState = {
   ],
   newPostText: "",
   profileInfo: null,
+  isFetching: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -43,6 +47,12 @@ const profileReducer = (state = initialState, action) => {
         profileInfo: action.profileInfo,
       };
 
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
+
     default:
       return state;
   }
@@ -57,5 +67,20 @@ export const setProfilePage = (profileInfo) => ({
   type: SET_USER_PROFILE,
   profileInfo,
 });
+export const toggleIsFetching = (isFetching) => ({
+  type: TOGGLE_IS_FETCHING,
+  isFetching,
+});
+
+//thunk-creators
+export const getUserPage = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    profileAPI.setUserPage(userId).then((data) => {
+      dispatch(setProfilePage(data));
+      dispatch(toggleIsFetching(false));
+    });
+  };
+};
 
 export default profileReducer;

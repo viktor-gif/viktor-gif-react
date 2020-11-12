@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/Preloader";
+import userPhoto from "../../../images/yoda.jpeg";
 
 const ProfileInfo = (props) => {
   if (!props.profileInfo) {
@@ -11,7 +12,9 @@ const ProfileInfo = (props) => {
     <div>
       <div className={s.mainPhoto}></div>
       <div className={s.info}>
-        <img src={info.photos.large} />
+        {props.isFetching && <Preloader />}
+        <img src={info.photos.large || userPhoto} />
+
         <div>{info.aboutMe}</div>
         <div>{info.fullName}</div>
         <div>{info.lookingForAJob}</div>
