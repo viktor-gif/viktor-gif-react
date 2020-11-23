@@ -1,0 +1,5 @@
+.errorForm {
+  display: inline-block;
+  color: red;
+  border: 2px solid red;
+}

@@ -1,3 +1,10 @@
+.content div {
+  margin-left: 10px;
+}
 .myPosts {
-  padding: 10px;
+  margin-bottom: 20px;
+}
+.myPosts div {
+  margin-top: 10px;
+  margin-left: 0;
 }

@@ -1,0 +1,7 @@
+.dialogsForm.error textarea,
+.dialogsForm.error input {
+  border: 2px solid red;
+}
+.dialogsForm.error div {
+  color: red;
+}
