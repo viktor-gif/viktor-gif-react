@@ -27,7 +27,7 @@ const Friends = (props) => {
 const Friend = (props) => {
   return (
     <div className={s.friend}>
-      <img className={s.friendImage} src={props.image} />
+      <img className={s.friendImage} src={props.image} alt="Friends" />
       <div className={s.name}>{props.name}</div>
     </div>
   );

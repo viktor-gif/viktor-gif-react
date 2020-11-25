@@ -29,18 +29,30 @@ export const usersAPI = {
   },
 };
 
+export const headerAPI = {
+  authMe() {
+    return instance.get(`auth/me/`).then((response) => {
+      return response.data;
+    });
+  },
+};
+
 export const profileAPI = {
   setUserPage(userId) {
     return instance.get(`profile/${userId}`).then((response) => {
       return response.data;
     });
   },
-};
-
-export const headerAPI = {
-  authMe() {
-    return instance.get(`auth/me/`).then((response) => {
+  getUserStatus(userId) {
+    return instance.get(`profile/status/${userId}`).then((response) => {
       return response.data;
     });
+  },
+  updateUserStatus(status) {
+    return instance
+      .put(`profile/status`, { status: status })
+      .then((response) => {
+        return response.data;
+      });
   },
 };

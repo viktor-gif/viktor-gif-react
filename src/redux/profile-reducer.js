@@ -4,6 +4,7 @@ const ADD_POST = "ADD_POST";
 const UPDATE_POST_TEXT = "PDATE_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const SET_STATUS = "SET_STATUS";
 
 const initialState = {
   posts: [
@@ -15,6 +16,7 @@ const initialState = {
   newPostText: "",
   profileInfo: null,
   isFetching: false,
+  status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -53,6 +55,12 @@ const profileReducer = (state = initialState, action) => {
         isFetching: action.isFetching,
       };
 
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
+
     default:
       return state;
   }
@@ -71,6 +79,10 @@ export const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching,
 });
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
 
 //thunk-creators
 export const getUserPage = (userId) => {
@@ -79,6 +91,23 @@ export const getUserPage = (userId) => {
     profileAPI.setUserPage(userId).then((data) => {
       dispatch(setProfilePage(data));
       dispatch(toggleIsFetching(false));
+    });
+  };
+};
+
+export const getStatus = (userId) => {
+  return (dispatch) => {
+    profileAPI.getUserStatus(userId).then((data) => {
+      dispatch(setStatus(data));
+    });
+  };
+};
+export const updateStatus = (status) => {
+  return (dispatch) => {
+    profileAPI.updateUserStatus(status).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
     });
   };
 };

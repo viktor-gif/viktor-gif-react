@@ -9,7 +9,7 @@ import {
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import { compose } from "redux";
-import WithAuthRedirect from "../common/hoc/WithAuthRedirect";
+// import WithAuthRedirect from "../common/hoc/WithAuthRedirect";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class UsersContainer extends React.Component {
   render() {
     return (
       <>
-        {this.props.isFetching == true ? <Preloader /> : null}
+        {this.props.isFetching === true ? <Preloader /> : null}
         <Users
           users={this.props.users}
           pageSize={this.props.pageSize}
