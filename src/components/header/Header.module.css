@@ -19,3 +19,7 @@
 .loginBlock a {
   color: white;
 }
+.loggedIn div {
+  display: inline-block;
+  margin-right: 20px;
+}

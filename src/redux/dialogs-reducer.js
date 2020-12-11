@@ -1,7 +1,6 @@
 import photo from "../images/wedding.jpg";
 
 let ADD_MESSAGE = "ADD_MESSAGE";
-let UPDATE_MESSAGE_TEXT = "UPDATE_MESSAGE_TEXT";
 
 const initialState = {
   dialogs: [
@@ -27,7 +26,6 @@ const initialState = {
     { id: 3, message: "What are you doing?" },
     { id: 4, message: "You are the best!" },
   ],
-  newMessageText: "",
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -37,20 +35,13 @@ const dialogsReducer = (state = initialState, action) => {
       let lastId = state.messages[lastMessage].id;
       return {
         ...state,
-        newMessageText: "",
         messages: [
           ...state.messages,
           {
             id: ++lastId,
-            message: state.newMessageText,
+            message: action.newMessageText,
           },
         ],
-      };
-    }
-    case UPDATE_MESSAGE_TEXT: {
-      return {
-        ...state,
-        newMessageText: action.newText,
       };
     }
     default:
@@ -58,10 +49,9 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessage = () => ({ type: ADD_MESSAGE });
-export const updateMessageText = (body) => ({
-  type: UPDATE_MESSAGE_TEXT,
-  newText: body,
+export const addMessage = (newMessageText) => ({
+  type: ADD_MESSAGE,
+  newMessageText,
 });
 
 export default dialogsReducer;

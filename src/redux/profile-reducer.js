@@ -1,7 +1,6 @@
 import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
-const UPDATE_POST_TEXT = "PDATE_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const SET_STATUS = "SET_STATUS";
@@ -13,7 +12,6 @@ const initialState = {
     { id: 3, post: "Оля вредна", likesCount: 25 },
     { id: 4, post: "Оля коханнячко", likesCount: 45 },
   ],
-  newPostText: "",
   profileInfo: null,
   isFetching: false,
   status: "",
@@ -26,21 +24,14 @@ const profileReducer = (state = initialState, action) => {
       let lastId = state.posts[lastPost].id;
       return {
         ...state,
-        newPostText: "",
         posts: [
           ...state.posts,
           {
             id: ++lastId,
-            post: state.newPostText,
+            post: action.newPostText,
             likesCount: Math.floor(Math.random() * 1000),
           },
         ],
-      };
-
-    case UPDATE_POST_TEXT:
-      return {
-        ...state,
-        newPostText: action.newText,
       };
 
     case SET_USER_PROFILE:
@@ -66,11 +57,7 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 //action-creators
-export const addPost = () => ({ type: ADD_POST });
-export const onPostChange = (text) => ({
-  type: UPDATE_POST_TEXT,
-  newText: text,
-});
+export const addPost = (newPostText) => ({ type: ADD_POST, newPostText });
 export const setProfilePage = (profileInfo) => ({
   type: SET_USER_PROFILE,
   profileInfo,

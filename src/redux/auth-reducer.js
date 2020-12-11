@@ -1,6 +1,6 @@
-import { headerAPI } from "../api/api";
+import { authAPI, headerAPI } from "../api/api";
 
-const GET_AUTH_DATA = "GET_AUTH_DATA";
+const SET_AUTH_DATA = "SET_AUTH_DATA";
 
 let initialState = {
   id: null,
@@ -11,11 +11,10 @@ let initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_AUTH_DATA:
+    case SET_AUTH_DATA:
       return {
         ...state,
-        ...action.data,
-        isAuth: true,
+        ...action.payload,
       };
 
     default:
@@ -23,9 +22,9 @@ const authReducer = (state = initialState, action) => {
   }
 };
 //action-creaters
-export const getAuthData = (id, login, email) => ({
-  type: GET_AUTH_DATA,
-  data: { id, login, email },
+export const setAuthData = (id, login, email, isAuth) => ({
+  type: SET_AUTH_DATA,
+  payload: { id, login, email, isAuth },
 });
 
 //thunk-creators
@@ -34,7 +33,26 @@ export const getAuthUserData = () => {
     headerAPI.authMe().then((data) => {
       if (data.resultCode === 0) {
         let { id, login, email } = data.data;
-        dispatch(getAuthData(id, login, email));
+        dispatch(setAuthData(id, login, email, true));
+      }
+    });
+  };
+};
+
+export const login = (email, password, rememberMe) => {
+  return (dispatch) => {
+    authAPI.login(email, password, rememberMe).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(getAuthUserData());
+      }
+    });
+  };
+};
+export const logout = () => {
+  return (dispatch) => {
+    authAPI.logout().then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(setAuthData(null, null, null, false));
       }
     });
   };
