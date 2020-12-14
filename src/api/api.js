@@ -38,8 +38,8 @@ export const headerAPI = {
 };
 
 export const profileAPI = {
-  setUserPage(userId) {
-    return instance.get(`profile/${userId}`).then((response) => {
+  getProfile(userId) {
+    return instance.get(`profile/` + userId).then((response) => {
       return response.data;
     });
   },

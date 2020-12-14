@@ -75,7 +75,7 @@ export const setStatus = (status) => ({
 export const getUserPage = (userId) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
-    profileAPI.setUserPage(userId).then((data) => {
+    profileAPI.getProfile(userId).then((data) => {
       dispatch(setProfilePage(data));
       dispatch(toggleIsFetching(false));
     });

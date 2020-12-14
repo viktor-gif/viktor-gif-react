@@ -29,15 +29,13 @@ export const setAuthData = (id, login, email, isAuth) => ({
 });
 
 //thunk-creators
-export const getAuthUserData = () => {
-  return (dispatch) => {
-    headerAPI.authMe().then((data) => {
-      if (data.resultCode === 0) {
-        let { id, login, email } = data.data;
-        dispatch(setAuthData(id, login, email, true));
-      }
-    });
-  };
+export const getAuthUserData = () => (dispatch) => {
+  return headerAPI.authMe().then((data) => {
+    if (data.resultCode === 0) {
+      let { id, login, email } = data.data;
+      dispatch(setAuthData(id, login, email, true));
+    }
+  });
 };
 
 export const login = (email, password, rememberMe) => {
