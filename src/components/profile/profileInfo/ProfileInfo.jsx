@@ -2,7 +2,7 @@ import React from "react";
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/Preloader";
 import userPhoto from "../../../images/yoda.jpeg";
-import ProfileStatus from "./profileStatus";
+import ProfileStatusWithHooks from "./profileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profileInfo) {
@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
       <div className={s.info}>
         {props.isFetching && <Preloader />}
         <img src={info.photos.large || userPhoto} alt="My face" />
-        <ProfileStatus
+        <ProfileStatusWithHooks
           status={props.status}
           updateStatus={props.updateStatus}
         />
