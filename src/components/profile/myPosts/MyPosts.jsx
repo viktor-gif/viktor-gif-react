@@ -8,27 +8,33 @@ import { Textarea } from "../../common/formControl/formControl";
 import s from "./MyPosts.module.css";
 import Post from "./post/Post";
 
-class MyPosts extends React.Component {
-  render() {
-    let myPostsItems = this.props.posts.map((p) => (
-      <Post id={p.id} key={p.id} message={p.post} likesCount={p.likesCount} />
+const MyPosts = (props) => {
+  let myPostsItems = [...props.posts]
+    .reverse()
+    .map((p) => (
+      <Post
+        id={p.id}
+        key={p.id}
+        message={p.post}
+        likesCount={p.likesCount}
+        deletePost={props.deletePost}
+      />
     ));
 
-    let addPost = (value) => {
-      this.props.addPost(value.addNewPostText);
-    };
-    console.log("RENDER YO");
-    return (
-      <div className={s.content}>
-        <div className={s.myPosts}>
-          <MyPostsReduxForm onSubmit={addPost} />
-          My posts
-          {myPostsItems}
-        </div>
+  let addPost = (value) => {
+    props.addPost(value.addNewPostText);
+  };
+  console.log("RENDER YO");
+  return (
+    <div className={s.content}>
+      <div className={s.myPosts}>
+        <MyPostsReduxForm onSubmit={addPost} />
+        My posts
+        {myPostsItems}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const maxLength20 = maxLengthCreator(20);
 
