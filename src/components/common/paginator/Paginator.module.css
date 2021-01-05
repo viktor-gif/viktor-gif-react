@@ -1,0 +1,40 @@
+.paginator {
+  margin: 20px;
+  user-select: none;
+}
+
+.paginator button {
+  font-size: 40px;
+  height: 30px;
+  /* line-height: 30%; */
+  text-align: left;
+  color: #000;
+  position: relative;
+  top: 5px;
+  border: none;
+  background-color: transparent;
+  margin-top: -100px;
+  border: none;
+}
+.paginator button:hover {
+  color: gold;
+  cursor: pointer;
+}
+
+.page {
+  color: #000;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  background-color: grey;
+}
+.page:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+.currentPage {
+  font-weight: bold;
+  background-color: gold;
+  color: #fff;
+  /* font-size: 45px; */
+}

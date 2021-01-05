@@ -17,9 +17,22 @@ let initialState = {
   followingInProgress: [],
 };
 
+// const followUnfollowFlow = (isFollowed, state, action) => {
+//   return {
+//     ...state,
+//     users: state.users.map((u) => {
+//       if (u.id === action.userId) {
+//         return { ...u, followed: isFollowed };
+//       }
+//       return u;
+//     }),
+//   };
+// };
+
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW:
+      // followUnfollowFlow(true, state, action);
       return {
         ...state,
         users: state.users.map((u) => {
@@ -30,6 +43,7 @@ const usersReducer = (state = initialState, action) => {
         }),
       };
     case UNFOLLOW:
+      // followUnfollowFlow(false, state, action);
       return {
         ...state,
         users: state.users.map((u) => {

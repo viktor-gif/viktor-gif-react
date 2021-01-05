@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
@@ -5,17 +6,19 @@ const DELETE_POST = "DELETE_POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const SET_STATUS = "SET_STATUS";
+const CHANGE_PHOTO_SUCCESS = "CHANGE_PHOTO_SUCCESS";
 
 const initialState = {
   posts: [
     { id: 1, post: "Hello Olia!", likesCount: 12 },
     { id: 2, post: "Olchik Kvasolchik", likesCount: 33 },
-    { id: 3, post: "Оля вредна", likesCount: 25 },
-    { id: 4, post: "Оля коханнячко", likesCount: 45 },
+    { id: 3, post: "rhrttjrjtyjetyjjy", likesCount: 25 },
+    { id: 4, post: "etjtjrjtyjtyjji,iuuewew", likesCount: 45 },
   ],
   profileInfo: null,
   isFetching: false,
   status: "",
+  updateProfileInfo: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -59,6 +62,12 @@ const profileReducer = (state = initialState, action) => {
         status: action.status,
       };
 
+    case CHANGE_PHOTO_SUCCESS:
+      return {
+        ...state,
+        profileInfo: { ...state.profileInfo, photos: action.photos },
+      };
+
     default:
       return state;
   }
@@ -78,33 +87,49 @@ export const setStatus = (status) => ({
   type: SET_STATUS,
   status,
 });
+export const changePhotoSuccess = (photos) => ({
+  type: CHANGE_PHOTO_SUCCESS,
+  photos,
+});
 
 //thunk-creators
-export const getUserPage = (userId) => {
-  return (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    profileAPI.getProfile(userId).then((data) => {
-      dispatch(setProfilePage(data));
-      dispatch(toggleIsFetching(false));
-    });
-  };
+export const getUserPage = (userId) => async (dispatch) => {
+  dispatch(toggleIsFetching(true));
+  const data = await profileAPI.getProfile(userId);
+  dispatch(setProfilePage(data));
+  dispatch(toggleIsFetching(false));
 };
 
-export const getStatus = (userId) => {
-  return (dispatch) => {
-    profileAPI.getUserStatus(userId).then((data) => {
-      dispatch(setStatus(data));
-    });
-  };
+export const getStatus = (userId) => (dispatch) => {
+  profileAPI.getUserStatus(userId).then((data) => {
+    dispatch(setStatus(data));
+  });
 };
-export const updateStatus = (status) => {
-  return (dispatch) => {
-    profileAPI.updateUserStatus(status).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
-  };
+
+export const updateStatus = (status) => async (dispatch) => {
+  const data = await profileAPI.updateUserStatus(status);
+  if (data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
+};
+
+export const changePhoto = (file) => async (dispatch) => {
+  const data = await profileAPI.savePhoto(file);
+
+  if (data.resultCode === 0) {
+    dispatch(changePhotoSuccess(data.data.photos));
+  }
+};
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.id;
+  const response = await profileAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserPage(userId));
+  } else {
+    dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] }));
+    return Promise.reject(response.data.messages[0]);
+  }
 };
 
 export default profileReducer;

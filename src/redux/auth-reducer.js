@@ -1,18 +1,21 @@
 import { stopSubmit } from "redux-form";
-import { authAPI, headerAPI } from "../api/api";
+import { authAPI, headerAPI, securityAPI } from "../api/api";
 
 const SET_AUTH_DATA = "SET_AUTH_DATA";
+const GET_CAPTCHA_URL_SUCCESS = "GET_CAPTCHA_URL_SUCCESS";
 
 let initialState = {
   id: null,
   login: null,
   email: null,
   isAuth: false,
+  captchaUrl: null,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_AUTH_DATA:
+    case GET_CAPTCHA_URL_SUCCESS:
       return {
         ...state,
         ...action.payload,
@@ -23,9 +26,13 @@ const authReducer = (state = initialState, action) => {
   }
 };
 //action-creaters
-export const setAuthData = (id, login, email, isAuth) => ({
+export const setAuthData = (id, login, email, isAuth, captchaUrl) => ({
   type: SET_AUTH_DATA,
-  payload: { id, login, email, isAuth },
+  payload: { id, login, email, isAuth, captchaUrl },
+});
+const getCaptchaUrlSuccess = (captchaUrl) => ({
+  type: GET_CAPTCHA_URL_SUCCESS,
+  payload: { captchaUrl },
 });
 
 //thunk-creators
@@ -38,12 +45,16 @@ export const getAuthUserData = () => (dispatch) => {
   });
 };
 
-export const login = (email, password, rememberMe) => {
+export const login = (email, password, rememberMe, captcha) => {
   return (dispatch) => {
-    authAPI.login(email, password, rememberMe).then((data) => {
+    authAPI.login(email, password, rememberMe, captcha).then((data) => {
       if (data.resultCode === 0) {
         dispatch(getAuthUserData());
       } else {
+        if (data.resultCode === 10) {
+          // debugger;
+          dispatch(getCaptchaUrl());
+        }
         const errorMessage = data.messages;
         dispatch(
           stopSubmit("login", {
@@ -62,6 +73,11 @@ export const logout = () => {
       }
     });
   };
+};
+export const getCaptchaUrl = () => async (dispatch) => {
+  const response = await securityAPI.getCaptchaUrl();
+  dispatch(getCaptchaUrlSuccess(response.data.url));
+  console.log(response.data.url);
 };
 
 export default authReducer;

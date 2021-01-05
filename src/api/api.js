@@ -55,12 +55,28 @@ export const profileAPI = {
         return response.data;
       });
   },
+  savePhoto(photoFile) {
+    let formData = new FormData();
+    formData.append("image", photoFile);
+    return instance
+      .put(`profile/photo`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        return response.data;
+      });
+  },
+  saveProfile(profile) {
+    return instance.put(`profile`, profile);
+  },
 };
 
 export const authAPI = {
-  login(email, password, rememberMe = false) {
+  login(email, password, rememberMe = false, captcha = null) {
     return instance
-      .post(`auth/login`, { email, password, rememberMe })
+      .post(`auth/login`, { email, password, rememberMe, captcha })
       .then((response) => {
         return response.data;
       });
@@ -69,5 +85,11 @@ export const authAPI = {
     return instance.delete(`auth/login`).then((response) => {
       return response.data;
     });
+  },
+};
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instance.get(`security/get-captcha-url`);
   },
 };

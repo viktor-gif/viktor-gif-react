@@ -6,6 +6,8 @@ import {
   getUserPage,
   getStatus,
   updateStatus,
+  changePhoto,
+  saveProfile,
 } from "../../redux/profile-reducer";
 import WithAuthRedirect from "../common/hoc/WithAuthRedirect";
 import Profile from "./Profile";
@@ -29,7 +31,16 @@ class ProfileContainer extends React.Component {
       <div>
         {/* {this.props.isFetching && <Preloader />} */}
 
-        <Profile {...this.props} />
+        <Profile
+          isOwner={!this.props.match.params.userId}
+          profileInfo={this.props.profileInfo}
+          isFetching={this.props.isFetching}
+          status={this.props.status}
+          authorizedUserId={this.props.authorizedUserId}
+          changePhoto={this.props.changePhoto}
+          updateStatus={this.props.updateStatus}
+          saveProfile={this.props.saveProfile}
+        />
       </div>
     );
   }
@@ -43,7 +54,13 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { getUserPage, getStatus, updateStatus }),
+  connect(mapStateToProps, {
+    getUserPage,
+    getStatus,
+    updateStatus,
+    changePhoto,
+    saveProfile,
+  }),
   // WithAuthRedirect,
   withRouter
 )(ProfileContainer);
