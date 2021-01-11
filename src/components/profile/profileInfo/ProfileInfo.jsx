@@ -19,7 +19,11 @@ const ProfileInfo = (props) => {
   };
 
   const contacts = Object.keys(info.contacts).map((key) => {
-    return <Contact key={key} contact={key} contactUrl={info.contacts[key]} />;
+    return (
+      <div className={s.contacts}>
+        <Contact key={key} contact={key} contactUrl={info.contacts[key]} />
+      </div>
+    );
   });
 
   return (
@@ -47,13 +51,20 @@ const ProfileInfo = (props) => {
           info={info}
           saveProfile={props.saveProfile}
           profileInfo={props.profileInfo}
+          isOwner={props.isOwner}
         />
       </div>
     </div>
   );
 };
 
-const EditInfoTitle = ({ contacts, info, saveProfile, profileInfo }) => {
+const EditInfoTitle = ({
+  contacts,
+  info,
+  saveProfile,
+  profileInfo,
+  isOwner,
+}) => {
   const [editMode, setEditMode] = useState(false);
 
   const profileSubmit = (formData) => {
@@ -64,7 +75,7 @@ const EditInfoTitle = ({ contacts, info, saveProfile, profileInfo }) => {
 
   return (
     <div>
-      {!editMode && (
+      {isOwner && !editMode && (
         <button
           onClick={() => {
             setEditMode(true);
