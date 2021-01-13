@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2640191145579229cc998bca59491dfa",
+    "revision": "091774b345258b835c2e0e6dc67a2632",
     "url": "/viktor-gif-react/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/viktor-gif-react/static/css/3.8be3a84e.chunk.css"
   },
   {
-    "revision": "2aeaceb9d38ee031458a",
-    "url": "/viktor-gif-react/static/css/main.134e72db.chunk.css"
+    "revision": "e25670b5ca7482e47d80",
+    "url": "/viktor-gif-react/static/css/main.9bb89782.chunk.css"
   },
   {
     "revision": "b705ebbd908803e917b4",
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/viktor-gif-react/static/js/3.4fe0b4d9.chunk.js"
   },
   {
-    "revision": "2aeaceb9d38ee031458a",
-    "url": "/viktor-gif-react/static/js/main.5792cfcb.chunk.js"
+    "revision": "e25670b5ca7482e47d80",
+    "url": "/viktor-gif-react/static/js/main.30d6bdad.chunk.js"
   },
   {
     "revision": "f43dfd4a7d8b52cc85d3",
