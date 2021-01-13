@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/common/preloader/Preloader";
@@ -62,11 +62,11 @@ const AppContainer = compose(
 
 const ViktorGifApp = (props) => {
   return (
-    <BrowserRouter basename={process.inv.PUBLIC_URL}>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
