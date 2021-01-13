@@ -62,7 +62,7 @@ const AppContainer = compose(
 
 const ViktorGifApp = (props) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.inv.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
