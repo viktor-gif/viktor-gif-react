@@ -4,10 +4,26 @@
   grid-template-columns: 1fr 5fr;
   grid-template-areas: "h h" "n c";
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .content {
   grid-area: c;
   background-color: #999;
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .App-wrapper {
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "h h" "n n" "c c";
+  }
+}
+@media (max-width: 576px) {
 }
