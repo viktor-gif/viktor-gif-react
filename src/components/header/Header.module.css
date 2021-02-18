@@ -23,3 +23,18 @@
   display: inline-block;
   margin-right: 20px;
 }
+
+.loginButtons button {
+  background-color: gold;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 5px;
+}
+.loginButtons button a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+.signUpButton {
+  margin-left: 15px;
+}
