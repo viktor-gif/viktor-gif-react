@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/viktor-gif-react/precache-manifest.eb1b8ef5acebd2e6fffc31c6b9fb9b97.js"
+  "/viktor-gif-react/precache-manifest.2b83644c897bdb2317f6e896f02eaaad.js"
 );
 
 self.addEventListener('message', (event) => {
