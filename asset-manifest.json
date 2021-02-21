@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/viktor-gif-react/static/css/main.b9244d9f.chunk.css",
-    "main.js": "/viktor-gif-react/static/js/main.cbcab7f4.chunk.js",
-    "main.js.map": "/viktor-gif-react/static/js/main.cbcab7f4.chunk.js.map",
-    "runtime-main.js": "/viktor-gif-react/static/js/runtime-main.bb047eb0.js",
-    "runtime-main.js.map": "/viktor-gif-react/static/js/runtime-main.bb047eb0.js.map",
-    "static/js/2.f580a266.chunk.js": "/viktor-gif-react/static/js/2.f580a266.chunk.js",
-    "static/js/2.f580a266.chunk.js.map": "/viktor-gif-react/static/js/2.f580a266.chunk.js.map",
+    "main.css": "/viktor-gif-react/static/css/main.6dd44ca2.chunk.css",
+    "main.js": "/viktor-gif-react/static/js/main.2c7b7a2f.chunk.js",
+    "main.js.map": "/viktor-gif-react/static/js/main.2c7b7a2f.chunk.js.map",
+    "runtime-main.js": "/viktor-gif-react/static/js/runtime-main.454b4cfb.js",
+    "runtime-main.js.map": "/viktor-gif-react/static/js/runtime-main.454b4cfb.js.map",
+    "static/js/2.785b1a15.chunk.js": "/viktor-gif-react/static/js/2.785b1a15.chunk.js",
+    "static/js/2.785b1a15.chunk.js.map": "/viktor-gif-react/static/js/2.785b1a15.chunk.js.map",
     "static/css/3.c178a85f.chunk.css": "/viktor-gif-react/static/css/3.c178a85f.chunk.css",
-    "static/js/3.bad4ef67.chunk.js": "/viktor-gif-react/static/js/3.bad4ef67.chunk.js",
-    "static/js/3.bad4ef67.chunk.js.map": "/viktor-gif-react/static/js/3.bad4ef67.chunk.js.map",
+    "static/js/3.8b14bb32.chunk.js": "/viktor-gif-react/static/js/3.8b14bb32.chunk.js",
+    "static/js/3.8b14bb32.chunk.js.map": "/viktor-gif-react/static/js/3.8b14bb32.chunk.js.map",
     "index.html": "/viktor-gif-react/index.html",
-    "precache-manifest.2b83644c897bdb2317f6e896f02eaaad.js": "/viktor-gif-react/precache-manifest.2b83644c897bdb2317f6e896f02eaaad.js",
+    "precache-manifest.00f757f6a7ca0610741153a3961178f1.js": "/viktor-gif-react/precache-manifest.00f757f6a7ca0610741153a3961178f1.js",
     "service-worker.js": "/viktor-gif-react/service-worker.js",
     "static/css/3.c178a85f.chunk.css.map": "/viktor-gif-react/static/css/3.c178a85f.chunk.css.map",
-    "static/css/main.b9244d9f.chunk.css.map": "/viktor-gif-react/static/css/main.b9244d9f.chunk.css.map",
-    "static/js/2.f580a266.chunk.js.LICENSE.txt": "/viktor-gif-react/static/js/2.f580a266.chunk.js.LICENSE.txt",
+    "static/css/main.6dd44ca2.chunk.css.map": "/viktor-gif-react/static/css/main.6dd44ca2.chunk.css.map",
+    "static/js/2.785b1a15.chunk.js.LICENSE.txt": "/viktor-gif-react/static/js/2.785b1a15.chunk.js.LICENSE.txt",
     "static/media/821ea91e3d8c.mp3": "/viktor-gif-react/static/media/821ea91e3d8c.29be27c1.mp3",
     "static/media/classic.mp3": "/viktor-gif-react/static/media/classic.70464abc.mp3",
     "static/media/dart.png": "/viktor-gif-react/static/media/dart.890fcfca.png",
@@ -24,9 +24,9 @@
     "static/media/yoda.jpeg": "/viktor-gif-react/static/media/yoda.11a76548.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bb047eb0.js",
-    "static/js/2.f580a266.chunk.js",
-    "static/css/main.b9244d9f.chunk.css",
-    "static/js/main.cbcab7f4.chunk.js"
+    "static/js/runtime-main.454b4cfb.js",
+    "static/js/2.785b1a15.chunk.js",
+    "static/css/main.6dd44ca2.chunk.css",
+    "static/js/main.2c7b7a2f.chunk.js"
   ]
 }
