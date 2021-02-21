@@ -15,7 +15,6 @@ import {
   getIsFetching,
   getPageSize,
   getTotalUsersCount,
-  getUsers,
 } from "../../redux/selectors/users-selectors";
 // import WithAuthRedirect from "../common/hoc/WithAuthRedirect";
 

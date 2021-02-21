@@ -10,12 +10,22 @@
 
 .item a {
   text-decoration: none;
-  /* color: #000; */
+  color: #e2e2e2;
 }
 .item:hover {
-  background-color: #f0f0f0;
+  background-color: #000;
 }
 
 .item a.active {
   color: gold;
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
 }

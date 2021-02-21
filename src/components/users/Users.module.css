@@ -39,3 +39,30 @@
   font-size: 16px;
   margin-top: 30px;
 }
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+  .users {
+    flex-direction: column;
+    margin-right: 40px;
+  }
+
+  .data {
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+  .nameStatus div {
+    text-align: center;
+  }
+  .location {
+    text-align: center;
+  }
+  .userPage button {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}

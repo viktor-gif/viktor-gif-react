@@ -3,3 +3,18 @@
   color: red;
   border: 2px solid red;
 }
+
+.loginContainer {
+  margin: 10px;
+}
+.loginContainer h1 {
+  margin: 0;
+}
+.loginForm div {
+  margin-top: 5px;
+}
+.loginButton button {
+  height: 30px;
+  background-color: gold;
+  border-radius: 5px;
+}

@@ -13,18 +13,32 @@ const Header = (props) => {
           <div className={s.loggedIn}>
             <div>{props.login}</div>
             <button onClick={props.logout}>Log out</button>
+            <SandwichBar />
           </div>
         ) : (
           <div className={s.loginButtons}>
-            <button>
-              <NavLink to="/login">Login</NavLink>
-            </button>
-            <button className={s.signUpButton}>
-              <a href="https://social-network.samuraijs.com/signUp">Sign up</a>
-            </button>
+            <div>
+              <button>
+                <NavLink to="/login">Login</NavLink>
+              </button>
+              <button className={s.signUpButton}>
+                <a href="https://social-network.samuraijs.com/signUp">
+                  Sign up
+                </a>
+              </button>
+            </div>
+            <div></div>
           </div>
         )}
       </div>
+    </div>
+  );
+};
+
+const SandwichBar = (props) => {
+  return (
+    <div className={s.sandwichBarContainer}>
+      <div className={s.sandwichBar}></div>
     </div>
   );
 };

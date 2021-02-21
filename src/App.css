@@ -19,11 +19,11 @@
 }
 
 @media (max-width: 768px) {
+}
+@media (max-width: 576px) {
   .App-wrapper {
     grid-template-rows: 50px 1fr;
     grid-template-columns: 1fr;
     grid-template-areas: "h h" "n n" "c c";
   }
-}
-@media (max-width: 576px) {
 }

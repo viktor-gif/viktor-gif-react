@@ -7,7 +7,10 @@ const Post = (props) => {
   };
   return (
     <div className={s.post}>
-      <img src="https://www.denofgeek.com/wp-content/uploads/2017/03/darth-vader-1_0.jpg?fit=1947%2C1274" />
+      <img
+        src="https://www.denofgeek.com/wp-content/uploads/2017/03/darth-vader-1_0.jpg?fit=1947%2C1274"
+        alt="postImage"
+      />
       <span>{props.message}</span>
       <span className={s.like}>
         like<span>{props.likesCount}</span>

@@ -11,7 +11,7 @@
   display: inline-block;
 }
 .loginBlock {
-  margin-right: 20px;
+  margin-right: 0px;
   margin-top: 15px;
   display: inline-block;
   float: right;
@@ -21,9 +21,13 @@
 }
 .loggedIn div {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
+.loginButtons {
+  display: flex;
+  margin-right: 15px;
+}
 .loginButtons button {
   background-color: gold;
   border: 2px solid #333;
@@ -37,4 +41,37 @@
 }
 .signUpButton {
   margin-left: 15px;
+}
+.sandwichBarContainer {
+  position: relative;
+}
+.sandwichBar {
+  display: block;
+  width: 25px;
+  height: 5px;
+  background-color: #000;
+  margin-left: 10px;
+  /* position: relative; */
+}
+.sandwichBar:before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 1000;
+}
+.sandwichBar:after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  bottom: 13px;
+  left: 10px;
+  z-index: 1000;
 }

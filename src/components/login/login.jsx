@@ -9,7 +9,7 @@ import s from "./Login.module.css";
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} className={s.loginForm}>
       <div>
         <Field
           name="email"
@@ -33,7 +33,7 @@ const LoginForm = (props) => {
       </div>
       {props.captchaUrl && (
         <div>
-          <img src={props.captchaUrl} />
+          <img src={props.captchaUrl} alt="captcha" />
           <div>
             <Field
               name="captcha"
@@ -45,7 +45,7 @@ const LoginForm = (props) => {
         </div>
       )}
       {props.error && <div className={s.loginError}>{props.error}</div>}
-      <div>
+      <div className={s.loginButton}>
         <button>Login</button>
       </div>
     </form>
@@ -71,7 +71,7 @@ const Login = (props) => {
   }
 
   return (
-    <div>
+    <div className={s.loginContainer}>
       <h1>LOGIN</h1>
       <LoginReduxForm captchaUrl={props.captchaUrl} onSubmit={loginSubmit} />
     </div>

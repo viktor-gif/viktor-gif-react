@@ -45,3 +45,16 @@
   height: 50px;
   border-radius: 5px;
 }
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+  .friendsContainer {
+    display: none;
+  }
+}
