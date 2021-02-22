@@ -1,6 +1,7 @@
 .header {
   grid-area: h;
   background-color: rgba(153, 153, 153, 0.5);
+  position: relative;
 }
 .image {
   display: inline-block;
@@ -21,12 +22,16 @@
 }
 .loggedIn div {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .loginButtons {
-  display: flex;
-  margin-right: 15px;
+  display: inline-block;
+  margin-top: -10px;
+  margin-right: 20px;
+}
+.loginButtons div {
+  display: inline-block;
 }
 .loginButtons button {
   background-color: gold;
@@ -42,36 +47,125 @@
 .signUpButton {
   margin-left: 15px;
 }
-.sandwichBarContainer {
-  position: relative;
+/* .sandwichBarContainer {
+  width: 30px;
+  height: 20px;
+  border-top: 5px solid #000;
+  border-bottom: 5px solid #000;
+  margin-left: 15px;
+  margin-top: -10px;
 }
 .sandwichBar {
+  width: 30px;
+  height: 5px;
+  margin-bottom: 2px;
+  background-color: #000;
+} */
+.sandwichBar {
+  visibility: hidden;
+}
+.sandwichBarToActive {
   display: block;
-  width: 25px;
+  width: 30px;
   height: 5px;
   background-color: #000;
   margin-left: 10px;
-  /* position: relative; */
+  position: relative;
+  margin-bottom: 3px;
 }
-.sandwichBar:before {
+.sandwichBarToActive:before {
   content: "";
   display: block;
-  width: 25px;
+  width: 30px;
   height: 5px;
   background-color: #000;
   position: absolute;
-  top: 20px;
-  left: 10px;
+  top: 12px;
   z-index: 1000;
 }
-.sandwichBar:after {
+.sandwichBarToActive:after {
   content: "";
   display: block;
-  width: 25px;
+  width: 30px;
   height: 5px;
   background-color: #000;
   position: absolute;
-  bottom: 13px;
-  left: 10px;
+  bottom: 12px;
   z-index: 1000;
+}
+.sandwichBarToDeactive {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: transparent;
+  margin-left: 10px;
+  position: relative;
+  margin-bottom: 3px;
+}
+.sandwichBarToDeactive:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  z-index: 1000;
+  rotate: 135deg;
+}
+.sandwichBarToDeactive:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  z-index: 1000;
+  rotate: 45deg;
+}
+
+/* navBar for small screans */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  grid-area: n;
+  background-image: url("https://www.theuniversetimes.ru/wp-content/uploads/2019/09/M31_Abolfath_3000.jpg");
+  background-size: contain;
+  opacity: 0.7;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.item {
+  display: block;
+  padding: 20px;
+}
+
+.item a {
+  text-decoration: none;
+  color: #e2e2e2;
+  display: block;
+  width: 100%;
+}
+.item:hover {
+  background-color: #000;
+}
+
+.item a.active {
+  color: gold;
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .sandwichBar {
+    visibility: visible;
+  }
+}
+@media (max-width: 576px) {
 }
