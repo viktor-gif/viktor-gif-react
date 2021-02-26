@@ -110,7 +110,7 @@
   background-color: #000;
   position: absolute;
   z-index: 1000;
-  rotate: 135deg;
+  transform: rotate(135deg);
 }
 .sandwichBarToDeactive:after {
   content: "";
@@ -120,7 +120,7 @@
   background-color: #000;
   position: absolute;
   z-index: 1000;
-  rotate: 45deg;
+  transform: rotate(45deg);
 }
 
 /* navBar for small screans */
