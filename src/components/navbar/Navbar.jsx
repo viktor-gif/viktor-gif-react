@@ -36,6 +36,11 @@ const Navbar = (props) => {
           Settings
         </NavLink>
       </div>
+      <div className={s.item}>
+        <NavLink to="/dev" activeClassName={s.active}>
+          Dev-page
+        </NavLink>
+      </div>
       <FriendsContainer friends={props.friends} />
     </nav>
   );

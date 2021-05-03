@@ -13,6 +13,7 @@ import News from "./components/news/News";
 import ProfileContainer from "./components/profile/ProfileContainer";
 import Settings from "./components/settings/Settings";
 import UsersContainer from "./components/users/UsersContainer";
+import DevPage from "./components/DevPage/DevPage";
 import { initializeApp } from "./redux/app-reducer";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -28,9 +29,9 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.props.initialized) {
-      return <Preloader />;
-    }
+    // if (!this.props.initialized) {
+    //   return <Preloader />;
+    // }
     return (
       <div className="App-wrapper">
         <HeaderContainer />
@@ -42,6 +43,7 @@ class App extends React.Component {
           <Route path="/music" component={Music} />
           <Route path="/news" component={News} />
           <Route path="/settings" component={Settings} />
+          <Route path="/dev" render={() => <DevPage />} />
           <Route path="/login" render={() => <LoginPage />} />
         </div>
       </div>
