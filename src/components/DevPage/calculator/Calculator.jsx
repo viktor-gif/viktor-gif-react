@@ -13,21 +13,21 @@ function Calculator(props) {
   };
 
   const buttons = [
+    "+",
     "1",
     "2",
     "3",
+    "-",
     "4",
     "5",
     "6",
+    "*",
     "7",
     "8",
     "9",
-    "0",
-    ".",
-    "+",
-    "-",
     "/",
-    "*",
+    ".",
+    "0",
     "**",
   ];
 
@@ -38,19 +38,20 @@ function Calculator(props) {
   ));
 
   return (
-    <div>
-      <div>
+    <div className={s.calcWrapper}>
+      <div className={s.display}>
         <input type="text" value={value} disabled={true} />
       </div>
-      <div>
-        {buttonsSymbols}
-        <button onClick={result}>=</button>
+      <div className={s.buttons}>
+        <button onClick={() => setValue("")}>CE</button>
         <button
           onClick={() => setValue(value.toString().slice(0, value.length - 1))}
         >
           C
         </button>
-        <button onClick={() => setValue("")}>CE</button>
+        <button onClick={result}>=</button>
+        {buttonsSymbols}
+        <button onClick={() => setValue(Math.sqrt(value))}>cor</button>
       </div>
     </div>
   );
