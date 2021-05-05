@@ -9,6 +9,9 @@ function DevPage(props) {
         <div>
           <NavLink to="/dev/calculator">Calculator</NavLink>
         </div>
+        <div>
+          <NavLink to="/dev/calculator">Calculator</NavLink>
+        </div>
       </div>
       <Route path="/dev/calculator" render={() => <Calculator />} />
     </div>
